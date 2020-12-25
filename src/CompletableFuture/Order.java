@@ -10,10 +10,6 @@ public class Order {
         this.id = id;
     }
 
-    public Order() {
-
-    }
-
     @Override
     public String toString() {
         return "Order{" +
@@ -36,5 +32,23 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static Order selectOrder(String id) {
+        //Thread.sleep(1000);
+        System.out.println(Thread.currentThread().getName()+" selecting order");
+        return new Order(id,Integer.valueOf(id));
+    }
+
+    public static Order paymentForOrder(Order order) {
+        //Thread.sleep(2000);
+        System.out.println(Thread.currentThread().getName()+" doing payment");
+        return order;
+    }
+
+    public static void emailOrder(Order order)  {
+       // Thread.sleep(3000);
+        System.out.println(Thread.currentThread().getName()+" emailed to customer:: "+order);
+
     }
 }
